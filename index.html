@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>pippi</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <style>
+    html, body{
+      width:100%;
+      height:100%;
+      margin:0;padding:0;
+      height:100%;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="webview_wrapper">
+  </div>
+
+  <div>
+    <button onclick="load('http://www.netflix.com/browse');">netflix</button>
+    <button onclick="load('http://www.amazon.co.jp/PrimeVideo');">amazon</button>
+    <button onclick="load('https://abema.tv/');">abematv</button>
+    <button onclick="load('http://www.hulu.jp/');">hulu</button>
+    <button onclick="load('http://video.unext.jp/');">unext</button>
+    <button onclick="load('https://www.youtube.com');">youtube</button>
+  </div>
+</body>
+<script>
+"use strict";
+function load(url){
+ var webview_wrapper = document.getElementById("webview_wrapper");
+ webview_wrapper.lastChild.remove();
+
+ var webview = document.createElement("webview");
+ webview.setAttribute("src",url);
+ webview.setAttribute("style", "width:100vw; height:100vh; orverflow:scroll;");
+ webview.setAttribute("allowpopups", "true");
+ webview_wrapper.appendChild(webview);
+}
+</script>
+</html>
